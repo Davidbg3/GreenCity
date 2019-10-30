@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EstadisticaActivity">
+
+<android.support.v7.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Lugares con mas indice de reciclaje">
+    </android.support.v7.widget.AppCompatTextView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"></View>
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/piechar"></com.github.mikephil.charting.charts.PieChart>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"></View>
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="Top Vecinos que Reciclan">
+    </android.support.v7.widget.AppCompatTextView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"></View>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/char1"></com.github.mikephil.charting.charts.BarChart>
+
+</android.support.v7.widget.LinearLayoutCompat>
+
+</ScrollView>
