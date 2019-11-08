@@ -16,7 +16,7 @@
         android:layout_height="30dp"
         android:gravity="center"
         android:layout_gravity="center"
-        android:text="Lugares con mas indice de reciclaje">
+        android:text="Como gano el dinero">
     </android.support.v7.widget.AppCompatTextView>
 
     <View
@@ -35,7 +35,7 @@
         android:layout_height="30dp"
         android:gravity="center"
         android:layout_gravity="center"
-        android:text="Top Vecinos que Reciclan">
+        android:text="Materiales reciclados">
     </android.support.v7.widget.AppCompatTextView>
     <View
         android:layout_width="match_parent"
