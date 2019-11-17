@@ -1,9 +1,12 @@
 package com.example.greencity;
 
+
 import android.graphics.Color;
-import android.service.autofill.Dataset;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -17,25 +20,37 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
-public class EstadisticaActivity extends AppCompatActivity {
+
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class EstadisticaFragment extends Fragment {
+
     PieChart pieChart;
 
     private BarChart mChart;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_estadistica);
+    public EstadisticaFragment() {
+        // Required empty public constructor
+    }
 
-        mChart = (BarChart) findViewById(R.id.char1);
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View view= inflater.inflate(R.layout.fragment_estadistica, container, false);
+
+
+
+        mChart = (BarChart) view.findViewById(R.id.char1);
         mChart.getDescription().setEnabled(false);
         setData(10);
         mChart.setFitBars(true);
 
 
-
         //grafico de pie
-        pieChart =(PieChart) findViewById(R.id.piechar);
+        pieChart =(PieChart) view.findViewById(R.id.piechar);
         pieChart.setUsePercentValues(true);
         pieChart.getDescription().setEnabled(false);
         pieChart.setExtraOffsets(5,10,5,5);
@@ -65,7 +80,9 @@ public class EstadisticaActivity extends AppCompatActivity {
         data.setValueTextColor(Color.YELLOW);
         pieChart.setData(data);
 
+        return view;
     }
+
     private void setData(int count)
     {
         ArrayList<BarEntry> yVals = new ArrayList<>();
@@ -83,6 +100,5 @@ public class EstadisticaActivity extends AppCompatActivity {
         mChart.invalidate();
         mChart.animateY(500);
     }
-
 
 }

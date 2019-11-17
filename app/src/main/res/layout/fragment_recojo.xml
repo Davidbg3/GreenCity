@@ -1,0 +1,102 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.greencity.RecojoFragment">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="140dp"
+        android:layout_centerHorizontal="true"
+        android:adjustViewBounds="true"
+        android:src="@drawable/main_logo"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ALERTA DE RECOJO"
+        android:textSize="30dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="50dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="145dp"
+        android:layout_marginLeft="50dp"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver recomendaciones de "
+            android:textSize="15dp"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recojo"
+            android:textColor="@color/colorAccent"
+            android:textSize="15dp"
+
+            android:id="@+id/recojo"
+            android:onClick="recojo"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        >
+
+        <Spinner
+            android:id="@+id/tipousuario"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+
+            >
+
+        </Spinner>
+
+
+        <EditText
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:hint="Cantidad"
+            />
+
+        <Button
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:text="+"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/botoncirculochiquito1"
+
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="430dp"
+        android:background="@drawable/botoncirculogrande1"
+        android:fontFamily="@font/podkova"
+        android:text="AVISAR"
+        android:textColor="@color/colortextcontrast"
+        android:textSize="25sp" />
+</FrameLayout>

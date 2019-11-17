@@ -1,6 +1,19 @@
 <resources>
-    <string name="app_name">GreenCity</string>
+    <string name="app_name">Green</string>
+    <string name="mainbuttonregister">Crear Cuenta</string>
+    <string name="mainbuttonlogin">Iniciar Sesión</string>
+    <string name="titulo_logo">GreenCity</string>
+    <string name="notaregistro">¿Ya tiene una cuenta?</string>
+    <string name="pasealogin">Iniciar Sesión</string>
+    <string name="pasearegistro">Registrarse</string>
+    <string name="lorem">Lorem ipsum dolor sit amet consectetur, adipiscing elit neque himenaeos vehicula, gravida maecenas eros inceptos. Lacus nascetur venenatis non metus blandit sodales taciti viverra rhoncus, nisi eleifend parturient nisl nullam curae ornare dapibus, quam nunc nulla id quis odio auctor ullamcorper. Eu fusce imperdiet feugiat euismod potenti vehicula dapibus enim cum penatibus tincidunt eget aliquet tristique lacinia sem, vel at volutpat dictumst bibendum lectus magna in quis conubia dictum dis est ullamcorper.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recojo_fragment">Hello recojo fragment</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string name="title_activity_maps1">Map</string>
+    <string name="marker_detail_latlng">(%1$.2f, %2$.2f)</string>
+
 </resources>

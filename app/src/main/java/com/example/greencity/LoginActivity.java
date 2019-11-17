@@ -5,25 +5,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        //
+        setContentView(R.layout.activity_login);
     }
+
 
     public void registro (View view){
         Intent registro = new Intent(this,RegisterActivity.class);
         startActivity(registro);
     }
 
-    public void login (View view){
-        Intent login = new Intent(this,LoginActivity.class);
-        startActivity(login);
-    }
 
+    public void sesion (View view){
+        Intent sesion = new Intent(this,SesionRActivity.class);
+        startActivity(sesion);
+
+    }
 
 }
