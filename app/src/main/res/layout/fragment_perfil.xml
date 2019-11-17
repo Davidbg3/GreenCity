@@ -14,7 +14,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/grad"
+            android:background="@drawable/gradPerfil"
             android:id="@+id/panelImagen"
             >
 
@@ -66,6 +66,7 @@
                         android:text="Nombres"
                         android:textSize="15sp"/>
                     <EditText
+                        android:id="@+id/txtNombres"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
@@ -84,6 +85,7 @@
                         android:text="Apellidos"
                         android:textSize="15sp"/>
                     <EditText
+                        android:id="@+id/txtApellidos"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
@@ -102,6 +104,7 @@
                         android:text="Celular / Teléfono"
                         android:textSize="15sp"/>
                     <EditText
+                        android:id="@+id/txtTelefono"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
@@ -120,6 +123,7 @@
                         android:text="Correo"
                         android:textSize="15sp"/>
                     <EditText
+                        android:id="@+id/txtCorreo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
@@ -138,6 +142,7 @@
                         android:text="Contraseña"
                         android:textSize="15sp"/>
                     <EditText
+                        android:id="@+id/txtPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
@@ -165,11 +170,12 @@
                     android:layout_height="wrap_content"
                     android:padding="15dp">
                     <Button
+                        android:id="@+id/btnActualizar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/roundedbutton"
                         android:textColor="@color/colortextcontrast"
-                        android:text="Cerrar Sesión"
+                        android:text="ACTUALIZAR DATOS"
                         android:padding="20dp" />
                 </LinearLayout>
                 <LinearLayout
@@ -177,6 +183,7 @@
                     android:layout_height="wrap_content"
                     android:padding="15dp">
                     <Button
+                        android:id="@+id/btnEliminar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/roundedbutton"
