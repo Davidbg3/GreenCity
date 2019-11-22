@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void sesion (View view){
-        Intent sesion = new Intent(this,SesionRActivity.class);
+        Intent sesion = new Intent(this,SesionActivity.class);
         startActivity(sesion);
 
     }

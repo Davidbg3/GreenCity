@@ -4,10 +4,83 @@
     android:layout_height="match_parent"
     tools:context="com.example.greencity.AlertaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="35dp"
+    android:orientation="horizontal"
+    android:background="@color/colortextcontrast"
+    >
+
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/fotoRecolector"
+        android:paddingTop="5dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="13dp"
+        android:textSize="15sp"
+        android:textColor="@color/TextColor"
+        android:textAlignment="center"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/receptor"
+        android:paddingTop="5dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:textSize="15sp"
+        android:textColor="@color/TextColor"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/estado"
+        android:paddingTop="5dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:textSize="15sp"
+        android:textColor="@color/TextColor"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/emisor"
+        android:paddingTop="5dp"
+        android:paddingLeft="13dp"
+        android:paddingRight="13dp"
+        android:textSize="15sp"
+        android:textColor="@color/TextColor"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/fecha"
+        android:paddingTop="5dp"
+        android:paddingLeft="13dp"
+
+        android:textSize="15sp"
+        android:textColor="@color/TextColor"
+        android:textAlignment="center"
+        />
+
+</LinearLayout>
+
+<include layout="@layout/card_view_alerta"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recycler_view"
+        >
+
+
+
+    </android.support.v7.widget.RecyclerView>
 
 </FrameLayout>

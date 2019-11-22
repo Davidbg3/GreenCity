@@ -8,12 +8,26 @@
     <string name="pasearegistro">Registrarse</string>
     <string name="lorem">Lorem ipsum dolor sit amet consectetur, adipiscing elit neque himenaeos vehicula, gravida maecenas eros inceptos. Lacus nascetur venenatis non metus blandit sodales taciti viverra rhoncus, nisi eleifend parturient nisl nullam curae ornare dapibus, quam nunc nulla id quis odio auctor ullamcorper. Eu fusce imperdiet feugiat euismod potenti vehicula dapibus enim cum penatibus tincidunt eget aliquet tristique lacinia sem, vel at volutpat dictumst bibendum lectus magna in quis conubia dictum dis est ullamcorper.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="recojo_fragment">Hello recojo fragment</string>
     <string name="title_activity_maps">Map</string>
 
     <string name="title_activity_maps1">Map</string>
     <string name="marker_detail_latlng">(%1$.2f, %2$.2f)</string>
+    
+    <string name="fotoRecolector">Foto</string>
+    <string name="receptor">Receptor</string>
+    <string name="estado">Estado</string>
+    <string name="emisor">Emisor</string>
+    <string name="fecha">Fecha</string>
+    
+    <string name="enEspera">En espera</string>
+    <string name="recolector">Recolector</string>
+    <string name="NombreVecino">Jose Miguel</string>
+    <string name="vecino">Vecino</string>
+    <string name="detalleRecojo">Detalle Recojo</string>
+    <string name="DatosRecolector">Datos Recolector</string>
+    <string name="fechadia">09/09/2019</string>
+    <string name="fechahora">14:07</string>
 
 </resources>

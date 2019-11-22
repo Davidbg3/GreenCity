@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+
+        >
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="5dp"
+            >
+            
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/alertasinuser"
+
+                />
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="7dp"
+            android:layout_marginStart="5dp"
+
+            >
+
+            <TextView
+                android:id="@+id/NombreRecolector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/enEspera"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:id="@+id/tipoRecolector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recolector"
+                android:textAlignment="center"
+                />
+
+            <Button
+                android:id="@+id/botonDatosRecolector"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/DatosRecolector"
+                android:textSize="8sp"
+                android:textColor="@color/colortextcontrast"
+                android:background="@drawable/roundedbutton"
+                />
+
+        </LinearLayout>
+
+        <Spinner
+            android:id="@+id/EstadoAlerta"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:background="@color/colortextcontrast"
+
+            >
+
+        </Spinner>
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="7dp"
+            android:layout_marginStart="5dp"
+            >
+
+            <TextView
+                android:id="@+id/nombreVecino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/NombreVecino"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:id="@+id/tipoVecino"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/vecino"
+                android:textAlignment="center"
+                />
+
+            <Button
+                android:id="@+id/botonDetalleRecojo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/detalleRecojo"
+                android:textSize="8sp"
+                android:textColor="@color/colortextcontrast"
+                android:background="@drawable/roundedbutton"
+                />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="14dp"
+            >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@string/fechadia"
+            android:textSize="10sp"
+            android:id="@+id/fecha"
+            />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/fechahora"
+                android:id="@+id/hora"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</android.support.v7.widget.CardView>

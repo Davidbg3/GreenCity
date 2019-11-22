@@ -31,12 +31,25 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".SesionRActivity" />
-        <activity android:name=".SesionActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity">
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".SesionRActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".SesionActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".RegisterActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
