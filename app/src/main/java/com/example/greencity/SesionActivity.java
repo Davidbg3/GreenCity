@@ -1,5 +1,6 @@
 package com.example.greencity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ public class SesionActivity extends AppCompatActivity {
     private AlertaFragment alertaFragment;
     private EstadisticaFragment estadisticaFragment;
     private PerfilFragment perfilFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

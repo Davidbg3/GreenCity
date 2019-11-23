@@ -14,13 +14,13 @@
 
     <string name="title_activity_maps1">Map</string>
     <string name="marker_detail_latlng">(%1$.2f, %2$.2f)</string>
-    
+
     <string name="fotoRecolector">Foto</string>
     <string name="receptor">Receptor</string>
     <string name="estado">Estado</string>
     <string name="emisor">Emisor</string>
     <string name="fecha">Fecha</string>
-    
+
     <string name="enEspera">En espera</string>
     <string name="recolector">Recolector</string>
     <string name="NombreVecino">Jose Miguel</string>
@@ -29,5 +29,7 @@
     <string name="DatosRecolector">Datos Recolector</string>
     <string name="fechadia">09/09/2019</string>
     <string name="fechahora">14:07</string>
+    <string name="title_activity_maps2">Map</string>
+    <string name="default_notification_channel_id">default_channel</string>
 
 </resources>

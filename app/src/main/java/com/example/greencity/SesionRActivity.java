@@ -1,5 +1,6 @@
 package com.example.greencity;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -14,23 +15,32 @@ public class SesionRActivity extends AppCompatActivity {
     private BottomNavigationView navigationView;
     private FrameLayout frameLayout;
 
-    private UbicacionFragment ubicacionFragment;
+//    private UbicacionFragment ubicacionFragment;
     private AlertaFragment alertaFragment;
     private EstadisticaFragment estadisticaFragment;
     private PerfilFragment perfilFragment;
 
+
+    private BlankFragment aa;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sesion_r);
 
         navigationView = (BottomNavigationView) findViewById(R.id.bottom_nav);
         frameLayout = (FrameLayout)findViewById(R.id.frame);
 
-        ubicacionFragment = new UbicacionFragment();
+//        ubicacionFragment = new UbicacionFragment();
         alertaFragment = new AlertaFragment();
         estadisticaFragment = new EstadisticaFragment();
         perfilFragment = new PerfilFragment();
-        setFragment(ubicacionFragment);
+
+        aa = new BlankFragment();
+
+        setFragment(aa);
+
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -38,8 +48,9 @@ public class SesionRActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
 
                     case R.id.principal:
-                        setFragment(ubicacionFragment);
+                        setFragment(aa);
                         return true;
+
                     case R.id.alertas:
                         setFragment(alertaFragment);
                         return true;
