@@ -71,7 +71,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:gravity="right"
-                        android:text="Jose Miguel"/>
+                        android:text="Luis"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -90,7 +90,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:gravity="right"
-                        android:text="Santos Arriaga"/>
+                        android:text="Montes Cornejo"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -128,7 +128,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="20sp"
                         android:gravity="right"
-                        android:text="JMSantos@gmail.com"/>
+                        android:text="1630914@utp.edu.pe"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -148,7 +148,7 @@
                         android:textSize="20sp"
                         android:gravity="right"
                         android:inputType="textPassword"
-                        android:text="1234567890"/>
+                        android:text="123"/>
                 </LinearLayout>
 
             </LinearLayout>

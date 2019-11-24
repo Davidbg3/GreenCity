@@ -24,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText txtEmail;
     private EditText txtPassword;
     private Button btnIniciarSesion;
-    Global oGlobal= new Global();
+    //Global oGlobal= new Global();
     private Boolean resultado;
 
     @Override
@@ -39,12 +39,15 @@ public class LoginActivity extends AppCompatActivity {
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (LoginApi(txtEmail.getText().toString(), txtPassword.getText().toString())){
+                resultado = LoginApi(txtEmail.getText().toString(), txtPassword.getText().toString());
+                /*
+                if (resultado){
                     Intent intent = new Intent(LoginActivity.this,SesionRActivity.class);
                     startActivity(intent);
                 }else{
                     Toast.makeText(LoginActivity.this,"Email o Password incorrecto.",Toast.LENGTH_SHORT).show();
                 }
+                 */
             }
         });
     }
@@ -54,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         try {
             final LoginRequest oReq = new LoginRequest(email, password);
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(oGlobal.URL_API + oGlobal.METODO_LOGIN)
+                    .baseUrl(Global.URL_API)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             UsuarioServicio usuarioServicio = retrofit.create(UsuarioServicio.class);
@@ -65,8 +68,14 @@ public class LoginActivity extends AppCompatActivity {
                     if (response.isSuccessful()){
                         LoginResponse oRes = response.body();
                         if (!oRes.getSuccess().getToken().equals("")){
-                            oGlobal.setIdUsuarioGlobal(Integer.parseInt(oRes.getSuccess().getCod_usuario()));
-                            oGlobal.setToken(oRes.getSuccess().getToken());
+                            //oGlobal.setIdUsuarioGlobal(Integer.parseInt(oRes.getSuccess().getCod_usuario()));
+                            Global.IdUsuario = Integer.parseInt(oRes.getSuccess().getCod_usuario());
+                            //oGlobal.setToken(oRes.getSuccess().getToken());
+                            Global.Token = oRes.getSuccess().getToken();
+                            Log.i("Login","Inicio de sesión exitoso");
+                            Toast.makeText(LoginActivity.this,"Inicio de sesión exitoso.",Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this,SesionRActivity.class);
+                            startActivity(intent);
                             resultado = true;
                         }else{
                             Log.i("Login","Inicio de sesión fallida, no se encontró token");
@@ -83,7 +92,7 @@ public class LoginActivity extends AppCompatActivity {
             });
 
         }catch (Exception e){
-
+            Log.i("Login","Error: " + e.getMessage());
         }
         return resultado;
     }

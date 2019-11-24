@@ -36,7 +36,7 @@ public class PerfilFragment extends Fragment {
     private Button btnActualizar;
     private Button btnEliminar;
 
-    Global oGlobal;
+    //Global oGlobal= new Global();
 
     public PerfilFragment() {
         // Required empty public constructor
@@ -54,8 +54,6 @@ public class PerfilFragment extends Fragment {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_perfil, container, false);
 
-        oGlobal = (Global)getActivity().getApplicationContext();
-
         txtNombres = rootView.findViewById(R.id.txtNombres);
         txtApellidos = rootView.findViewById(R.id.txtApellidos);
         txtTelefono = rootView.findViewById(R.id.txtTelefono);
@@ -64,7 +62,8 @@ public class PerfilFragment extends Fragment {
         btnActualizar = rootView.findViewById(R.id.btnActualizar);
 
         final UpdateUsuarioRequest oReq = new UpdateUsuarioRequest();
-        oReq.setCod_usuario(1);
+        //oReq.setCod_usuario(oGlobal.getIdUsuarioGlobal());
+        oReq.setCod_usuario(Global.IdUsuario);
         oReq.setNom_usuario(txtNombres.getText().toString());
         oReq.setPass_usuario(txtPassword.getText().toString());
         oReq.setNombres(txtNombres.getText().toString());
@@ -91,11 +90,12 @@ public class PerfilFragment extends Fragment {
                 ALMACENAR URL API EN VARIABLE GLOBAL
             */
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(oGlobal.URL_API + oGlobal.METODO_ACTUALIZAR_USUARIO)
+                    .baseUrl(Global.URL_API)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             UsuarioServicio usuarioServicio =retrofit.create(UsuarioServicio.class);
-            Call<UpdateUsuarioResponse> call = usuarioServicio.UpdateUsuario(oReq, oGlobal.getToken());
+            //Call<UpdateUsuarioResponse> call = usuarioServicio.UpdateUsuario(oReq, oGlobal.getToken());
+            Call<UpdateUsuarioResponse> call = usuarioServicio.UpdateUsuario(oReq, "Reader " + Global.Token);
             call.enqueue(new Callback<UpdateUsuarioResponse>() {
                 @Override
                 public void onResponse(Call<UpdateUsuarioResponse> call, Response<UpdateUsuarioResponse> response) {
@@ -103,7 +103,7 @@ public class PerfilFragment extends Fragment {
                         UpdateUsuarioResponse oRes = response.body();
                         Log.i("Update Usuario","Usuario Actualizado. " + oRes.getMensaje());
                     }else{
-
+                        Log.i("Update Usuario","Error response" + response.message());
                     }
                 }
 

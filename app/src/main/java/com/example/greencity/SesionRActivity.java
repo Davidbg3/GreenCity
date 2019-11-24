@@ -40,6 +40,7 @@ public class SesionRActivity extends AppCompatActivity {
         aa = new BlankFragment();
 
         setFragment(aa);
+        //setFragment(perfilFragment);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

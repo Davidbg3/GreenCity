@@ -3,13 +3,12 @@ package com.example.greencity;
 import android.app.Application;
 
 public class Global extends Application {
-    public final static String URL_API = "https://greencityapp.000webhostapp.com";
-    public final static String METODO_ACTUALIZAR_USUARIO = "/Update";
-    public final static String METODO_LOGIN = "/loginUser";
-    private int IdUsuario;
+    public final static String URL_API = "https://greencityapp.000webhostapp.com/";
+    public static int IdUsuario;
     private String NombresUsuario;
-    private String Token;
+    public static String Token;
 
+    /*
     public int getIdUsuarioGlobal() {
         return IdUsuario;
     }
@@ -33,4 +32,5 @@ public class Global extends Application {
     public void setToken(String token) {
         Token = token;
     }
+     */
 }
