@@ -7,6 +7,7 @@ import com.example.greencity.Intercambio.UpdateUsuarioResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface UsuarioServicio {
@@ -14,7 +15,6 @@ public interface UsuarioServicio {
     Call<LoginResponse> LoginUsuario(@Body LoginRequest oReq);
 
     @POST("update")
-    Call<UpdateUsuarioResponse> UpdateUsuario(@Body UpdateUsuarioRequest oReq);
-
+    Call<UpdateUsuarioResponse> UpdateUsuario(@Body UpdateUsuarioRequest oReq, @Header("Authorization") String token);
 
 }
