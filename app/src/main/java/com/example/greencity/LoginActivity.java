@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
                             Global.Token = oRes.getSuccess().getToken();
                             Log.i("Login","Inicio de sesión exitoso");
                             Toast.makeText(LoginActivity.this,"Inicio de sesión exitoso.",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this,SesionRActivity.class);
+                            Intent intent = new Intent(LoginActivity.this,SesionActivity.class);
                             startActivity(intent);
                             resultado = true;
                         }else{
