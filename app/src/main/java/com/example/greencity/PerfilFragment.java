@@ -36,6 +36,8 @@ public class PerfilFragment extends Fragment {
     private Button btnActualizar;
     private Button btnEliminar;
 
+    Global oGlobal;
+
     public PerfilFragment() {
         // Required empty public constructor
     }
@@ -51,6 +53,8 @@ public class PerfilFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        oGlobal = (Global)getActivity().getApplicationContext();
 
         txtNombres = rootView.findViewById(R.id.txtNombres);
         txtApellidos = rootView.findViewById(R.id.txtApellidos);
@@ -87,7 +91,7 @@ public class PerfilFragment extends Fragment {
                 ALMACENAR URL API EN VARIABLE GLOBAL
             */
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("https://greencityapp.000webhostapp.com" + "/update")
+                    .baseUrl(oGlobal.URL_API + oGlobal.METODO_ACTUALIZAR_USUARIO)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             UsuarioServicio usuarioServicio =retrofit.create(UsuarioServicio.class);

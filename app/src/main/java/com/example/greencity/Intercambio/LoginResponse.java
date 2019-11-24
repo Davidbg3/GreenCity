@@ -6,17 +6,25 @@ public class LoginResponse {
 
     private String error;
 
-    private class Success{
+    public class Success{
         private String token;
-    }
+        private String cod_usuario;
 
-    public LoginResponse(Success success, String error) {
-        this.success = success;
-        this.error = error;
-    }
+        public String getToken() {
+            return token;
+        }
 
-    public LoginResponse(Success success) {
-        this.success = success;
+        public void setToken(String token) {
+            this.token = token;
+        }
+
+        public String getCod_usuario() {
+            return cod_usuario;
+        }
+
+        public void setCod_usuario(String cod_usuario) {
+            this.cod_usuario = cod_usuario;
+        }
     }
 
     public Success getSuccess() {
