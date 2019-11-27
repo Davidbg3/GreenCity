@@ -17,7 +17,7 @@ public interface UsuarioServicio {
     @POST("loginUser")
     Call<LoginResponse> LoginUsuario(@Body LoginRequest oReq);
 
-    @POST("update")
+    @POST("usuarios/update")
     Call<UpdateUsuarioResponse> UpdateUsuario(@Body UpdateUsuarioRequest oReq, @Header("Authorization") String token);
 
 }

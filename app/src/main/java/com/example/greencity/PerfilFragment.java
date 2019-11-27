@@ -94,7 +94,6 @@ public class PerfilFragment extends Fragment {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             UsuarioServicio usuarioServicio =retrofit.create(UsuarioServicio.class);
-            //Call<UpdateUsuarioResponse> call = usuarioServicio.UpdateUsuario(oReq, oGlobal.getToken());
             Call<UpdateUsuarioResponse> call = usuarioServicio.UpdateUsuario(oReq, "Reader " + Global.Token);
             call.enqueue(new Callback<UpdateUsuarioResponse>() {
                 @Override
