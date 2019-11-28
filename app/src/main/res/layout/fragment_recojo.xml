@@ -48,7 +48,7 @@
             android:textSize="15dp"
 
             android:id="@+id/recojo"
-            android:onClick="recojo"
+
             />
 
     </LinearLayout>
