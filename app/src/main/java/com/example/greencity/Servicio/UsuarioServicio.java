@@ -1,6 +1,9 @@
 package com.example.greencity.Servicio;
 
+import android.support.annotation.FloatRange;
+
 import com.example.greencity.Global;
+import com.example.greencity.Intercambio.DeleteUsuarioResponse;
 import com.example.greencity.Intercambio.GetUsuarioResponse;
 import com.example.greencity.Intercambio.LoginRequest;
 import com.example.greencity.Intercambio.LoginResponse;
@@ -25,4 +28,7 @@ public interface UsuarioServicio {
 
     @GET("usuarios/{id}")
     Call<GetUsuarioResponse> GetUsuario(@Path("id") int id);
+
+    @POST("usuarios/delete/{id}")
+    Call<DeleteUsuarioResponse> DeleteUsuario(@Path("id") int id, @Header("Authorization") String token);
 }

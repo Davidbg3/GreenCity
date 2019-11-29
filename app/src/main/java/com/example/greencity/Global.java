@@ -11,6 +11,7 @@ public class Global extends Application {
     public static String CorreoUsuario;
     public static String latitudUsuario;
     public static String longitudUsuario;
+    public static String PasswordUsuario;
     public static int IdTipoUsuario; /* 1 : Vecino , 2 : Recolector */
     public static String Token;
 

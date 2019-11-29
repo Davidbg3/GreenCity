@@ -85,6 +85,7 @@ public class LoginActivity extends AppCompatActivity {
                                     if (response.isSuccessful()){
                                         GetUsuarioResponse oRes = response.body();
                                         Global.NombresUsuario = oRes.getNom_usuario();
+                                        Global.PasswordUsuario = oRes.getPass_usuario();
                                         Global.ApellidosUsuario = oRes.getApellidos();
                                         Global.TelefonoUsuario = oRes.getTelefono();
                                         Global.CorreoUsuario = oRes.getCorreo();
