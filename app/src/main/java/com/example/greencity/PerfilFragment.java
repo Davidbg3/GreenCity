@@ -1,6 +1,7 @@
 package com.example.greencity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -147,6 +148,8 @@ public class PerfilFragment extends Fragment {
                         DeleteUsuarioResponse oRes = response.body();
                         Log.i("Delete Usuario", oRes.getMensaje());
                         Toast.makeText(getActivity(),"Usuario Eliminado.", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), LoginActivity.class);
+                        startActivity(intent);
                     }else{
                         Log.i("Delete Usuario","Error response: " + response.message());
                         Toast.makeText(getActivity(),"Error al eliminar.", Toast.LENGTH_SHORT).show();
