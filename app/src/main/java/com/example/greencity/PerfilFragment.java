@@ -20,6 +20,8 @@ import com.example.greencity.Intercambio.UpdateUsuarioRequest;
 import com.example.greencity.Intercambio.UpdateUsuarioResponse;
 import com.example.greencity.Servicio.UsuarioServicio;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -107,18 +109,20 @@ public class PerfilFragment extends Fragment {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             UsuarioServicio usuarioServicio =retrofit.create(UsuarioServicio.class);
-            Call<UpdateUsuarioResponse> call = usuarioServicio.UpdateUsuario(oReq, "Reader " + Global.Token);
-            call.enqueue(new Callback<UpdateUsuarioResponse>() {
+            Call<List<UpdateUsuarioResponse>> call = usuarioServicio.UpdateUsuario(oReq, "Bearer " + Global.Token);
+            call.enqueue(new Callback<List<UpdateUsuarioResponse>>() {
                 @Override
-                public void onResponse(Call<UpdateUsuarioResponse> call, Response<UpdateUsuarioResponse> response) {
+                public void onResponse(Call<List<UpdateUsuarioResponse>> call, Response<List<UpdateUsuarioResponse>> response) {
                     if (response.isSuccessful()){
-                        UpdateUsuarioResponse oRes = response.body();
-                        if (oRes.getExito()){
-                            Log.i("Update Usuario","Usuario Actualizado. " + oRes.getMensaje());
-                            Toast.makeText(getActivity(),"Datos Actualizados.", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Log.i("Update Usuario","Error response" + oRes.getMensaje());
-                            Toast.makeText(getActivity(),"Error al Actualizar datos. Detalle: " + oRes.getMensaje(), Toast.LENGTH_SHORT).show();
+                        List<UpdateUsuarioResponse> lstRes = response.body();
+                        for (UpdateUsuarioResponse oRes : lstRes){
+                            if (oRes.getExito()){
+                                Log.i("Update Usuario","Usuario Actualizado. " + oRes.getMensaje());
+                                Toast.makeText(getActivity(),"Datos Actualizados.", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Log.i("Update Usuario","Error response" + oRes.getMensaje());
+                                Toast.makeText(getActivity(),"Error al Actualizar datos. Detalle: " + oRes.getMensaje(), Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }else{
                         Log.i("Update Usuario","Error response" + response.message());
@@ -127,7 +131,7 @@ public class PerfilFragment extends Fragment {
                 }
 
                 @Override
-                public void onFailure(Call<UpdateUsuarioResponse> call, Throwable t) {
+                public void onFailure(Call<List<UpdateUsuarioResponse>> call, Throwable t) {
                     Log.i("Update Usuario","Error al Actualizar.");
                 }
             });

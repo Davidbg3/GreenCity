@@ -14,6 +14,8 @@ import com.example.greencity.Intercambio.LoginRequest;
 import com.example.greencity.Intercambio.LoginResponse;
 import com.example.greencity.Servicio.UsuarioServicio;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,6 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnIniciarSesion;
     //Global oGlobal= new Global();
     private Boolean resultado;
+    List<GetUsuarioResponse> lstGetUsuarioResponse;
+    private String passUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                passUsuario = txtPassword.getText().toString();
                 resultado = LoginApi(txtEmail.getText().toString(), txtPassword.getText().toString());
-                /*
-                if (resultado){
-                    Intent intent = new Intent(LoginActivity.this,SesionRActivity.class);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(LoginActivity.this,"Email o Password incorrecto.",Toast.LENGTH_SHORT).show();
-                }
-                 */
             }
         });
     }
@@ -78,20 +75,24 @@ public class LoginActivity extends AppCompatActivity {
                                     .addConverterFactory(GsonConverterFactory.create())
                                     .build();
                             UsuarioServicio usuarioServicio1 = retrofit1.create(UsuarioServicio.class);
-                            Call<GetUsuarioResponse> call1 = usuarioServicio1.GetUsuario(Global.IdUsuario);
-                            call1.enqueue(new Callback<GetUsuarioResponse>() {
+                            Call<List<GetUsuarioResponse>> call1 = usuarioServicio1.GetUsuario(Global.IdUsuario, "Bearer " + Global.Token);
+                            call1.enqueue(new Callback<List<GetUsuarioResponse>>() {
                                 @Override
-                                public void onResponse(Call<GetUsuarioResponse> call, Response<GetUsuarioResponse> response) {
+                                public void onResponse(Call<List<GetUsuarioResponse>> call, Response<List<GetUsuarioResponse>> response) {
                                     if (response.isSuccessful()){
-                                        GetUsuarioResponse oRes = response.body();
-                                        Global.NombresUsuario = oRes.getNom_usuario();
-                                        Global.PasswordUsuario = oRes.getPass_usuario();
-                                        Global.ApellidosUsuario = oRes.getApellidos();
-                                        Global.TelefonoUsuario = oRes.getTelefono();
-                                        Global.CorreoUsuario = oRes.getCorreo();
-                                        Global.latitudUsuario = oRes.getLatitud();
-                                        Global.longitudUsuario = oRes.getLongitud();
-                                        Global.IdTipoUsuario = oRes.getCod_tipo_usuario();
+                                        //GetUsuarioResponse oRes = response.body();
+                                        List<GetUsuarioResponse> lstRes = response.body();
+
+                                        for (GetUsuarioResponse oRes : lstRes){
+                                            Global.NombresUsuario = oRes.getNom_usuario();
+                                            Global.PasswordUsuario = passUsuario;
+                                            Global.ApellidosUsuario = oRes.getApellidos();
+                                            Global.TelefonoUsuario = oRes.getTelefono();
+                                            Global.CorreoUsuario = oRes.getCorreo();
+                                            Global.latitudUsuario = oRes.getLatitud();
+                                            Global.longitudUsuario = oRes.getLongitud();
+                                            Global.IdTipoUsuario = oRes.getCod_tipo_usuario();
+                                        }
 
                                         resultado = true;
                                         /* 1 : Vecino , 2 : Recolector */
@@ -108,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                                 }
 
                                 @Override
-                                public void onFailure(Call<GetUsuarioResponse> call, Throwable t) {
+                                public void onFailure(Call<List<GetUsuarioResponse>> call, Throwable t) {
                                     Log.i("Login","Error al obtener datos de usuario.");
                                 }
                             });
@@ -137,7 +138,6 @@ public class LoginActivity extends AppCompatActivity {
         Intent registro = new Intent(this,RegisterActivity.class);
         startActivity(registro);
     }
-
 
     public void sesion (View view){
         Intent sesion = new Intent(this,SesionRActivity.class);

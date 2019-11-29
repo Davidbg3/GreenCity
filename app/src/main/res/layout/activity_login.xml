@@ -23,8 +23,8 @@
         android:layout_marginTop="300dp"
         android:hint="Correo Electrónico"
         android:id="@+id/correo"
-        android:text="1630914@utp.edu.pe"
         />
+    <!-- android:text="1630914@utp.edu.pe" -->
 
     <EditText
         android:layout_width="300dp"
@@ -34,9 +34,8 @@
         android:hint="Contraseña"
         android:password="true"
         android:id="@+id/contrasena"
-        android:text="123"
         />
-
+    <!-- android:text="123" -->
 
     <Button
         android:layout_width="289dp"
