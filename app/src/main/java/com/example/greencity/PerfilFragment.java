@@ -113,8 +113,13 @@ public class PerfilFragment extends Fragment {
                 public void onResponse(Call<UpdateUsuarioResponse> call, Response<UpdateUsuarioResponse> response) {
                     if (response.isSuccessful()){
                         UpdateUsuarioResponse oRes = response.body();
-                        Log.i("Update Usuario","Usuario Actualizado. " + oRes.getMensaje());
-                        Toast.makeText(getActivity(),"Datos Actualizados.", Toast.LENGTH_SHORT).show();
+                        if (oRes.getExito()){
+                            Log.i("Update Usuario","Usuario Actualizado. " + oRes.getMensaje());
+                            Toast.makeText(getActivity(),"Datos Actualizados.", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Log.i("Update Usuario","Error response" + oRes.getMensaje());
+                            Toast.makeText(getActivity(),"Error al Actualizar datos. Detalle: " + oRes.getMensaje(), Toast.LENGTH_SHORT).show();
+                        }
                     }else{
                         Log.i("Update Usuario","Error response" + response.message());
                         Toast.makeText(getActivity(),"Error al Actualizar datos.", Toast.LENGTH_SHORT).show();

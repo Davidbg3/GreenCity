@@ -1,27 +1,27 @@
 package com.example.greencity.Intercambio;
 
 public class UpdateUsuarioResponse {
-    private String Mensaje;
-    private String error;
+    private Boolean exito;
+    private String mensaje;
 
-    public UpdateUsuarioResponse(String mensaje, String error) {
-        Mensaje = mensaje;
-        this.error = error;
+    public UpdateUsuarioResponse(Boolean exito, String mensaje) {
+        this.exito = exito;
+        this.mensaje = mensaje;
+    }
+
+    public Boolean getExito() {
+        return exito;
+    }
+
+    public void setExito(Boolean exito) {
+        this.exito = exito;
     }
 
     public String getMensaje() {
-        return Mensaje;
+        return mensaje;
     }
 
     public void setMensaje(String mensaje) {
-        Mensaje = mensaje;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
+        this.mensaje = mensaje;
     }
 }
