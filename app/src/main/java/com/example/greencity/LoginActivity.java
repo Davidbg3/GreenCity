@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.greencity.Intercambio.GetUsuarioResponse;
 import com.example.greencity.Intercambio.LoginRequest;
 import com.example.greencity.Intercambio.LoginResponse;
 import com.example.greencity.Servicio.UsuarioServicio;
@@ -68,15 +69,49 @@ public class LoginActivity extends AppCompatActivity {
                     if (response.isSuccessful()){
                         LoginResponse oRes = response.body();
                         if (!oRes.getSuccess().getToken().equals("")){
-                            //oGlobal.setIdUsuarioGlobal(Integer.parseInt(oRes.getSuccess().getCod_usuario()));
                             Global.IdUsuario = Integer.parseInt(oRes.getSuccess().getCod_usuario());
-                            //oGlobal.setToken(oRes.getSuccess().getToken());
                             Global.Token = oRes.getSuccess().getToken();
                             Log.i("Login","Inicio de sesión exitoso");
-                            Toast.makeText(LoginActivity.this,"Inicio de sesión exitoso.",Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this,SesionActivity.class);
-                            startActivity(intent);
-                            resultado = true;
+
+                            Retrofit retrofit1 = new Retrofit.Builder()
+                                    .baseUrl(Global.URL_API)
+                                    .addConverterFactory(GsonConverterFactory.create())
+                                    .build();
+                            UsuarioServicio usuarioServicio1 = retrofit1.create(UsuarioServicio.class);
+                            Call<GetUsuarioResponse> call1 = usuarioServicio1.GetUsuario(Global.IdUsuario);
+                            call1.enqueue(new Callback<GetUsuarioResponse>() {
+                                @Override
+                                public void onResponse(Call<GetUsuarioResponse> call, Response<GetUsuarioResponse> response) {
+                                    if (response.isSuccessful()){
+                                        GetUsuarioResponse oRes = response.body();
+                                        Global.NombresUsuario = oRes.getNom_usuario();
+                                        Global.ApellidosUsuario = oRes.getApellidos();
+                                        Global.TelefonoUsuario = oRes.getTelefono();
+                                        Global.CorreoUsuario = oRes.getCorreo();
+                                        Global.latitudUsuario = oRes.getLatitud();
+                                        Global.longitudUsuario = oRes.getLongitud();
+                                        Global.IdTipoUsuario = oRes.getCod_tipo_usuario();
+
+                                        resultado = true;
+                                        /* 1 : Vecino , 2 : Recolector */
+                                        if (Global.IdTipoUsuario == 2){
+                                            Toast.makeText(LoginActivity.this,"Inicio de sesión Recolector exitoso.",Toast.LENGTH_SHORT).show();
+                                            Intent intent2 = new Intent(LoginActivity.this, SesionRActivity.class);
+                                            startActivity(intent2);
+                                        }else{
+                                            Toast.makeText(LoginActivity.this,"Inicio de sesión Vecino exitoso.",Toast.LENGTH_SHORT).show();
+                                            Intent intent1 = new Intent(LoginActivity.this, SesionActivity.class);
+                                            startActivity(intent1);
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onFailure(Call<GetUsuarioResponse> call, Throwable t) {
+                                    Log.i("Login","Error al obtener datos de usuario.");
+                                }
+                            });
+
                         }else{
                             Log.i("Login","Inicio de sesión fallida, no se encontró token");
                         }

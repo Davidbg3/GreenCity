@@ -86,9 +86,6 @@ public class PerfilFragment extends Fragment {
 
     public void ActualizarUsuario(UpdateUsuarioRequest oReq){
         try{
-            /*PENDIENTE:
-                ALMACENAR URL API EN VARIABLE GLOBAL
-            */
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(Global.URL_API)
                     .addConverterFactory(GsonConverterFactory.create())
