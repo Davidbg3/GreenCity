@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                             Global.IdUsuario = Integer.parseInt(oRes.getSuccess().getCod_usuario());
                             Global.Token = oRes.getSuccess().getToken();
                             Log.i("Login","Inicio de sesión exitoso");
-<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 
                             Retrofit retrofit1 = new Retrofit.Builder()
                                     .baseUrl(Global.URL_API)
@@ -119,12 +119,12 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             });
 
-=======
+//=======
                             Toast.makeText(LoginActivity.this,"Inicio de sesión exitoso.",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginActivity.this,SesionRActivity.class);
                             startActivity(intent);
                             resultado = true;
->>>>>>> Stashed changes
+//>>>>>>> Stashed changes
                         }else{
                             Log.i("Login","Inicio de sesión fallida, no se encontró token");
                             Toast.makeText(LoginActivity.this,"Inicio de sesión fallida, no se encontró token",Toast.LENGTH_SHORT).show();
