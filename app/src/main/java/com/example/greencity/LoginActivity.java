@@ -32,6 +32,10 @@ public class LoginActivity extends AppCompatActivity {
     List<GetUsuarioResponse> lstGetUsuarioResponse;
     private String passUsuario;
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,15 +120,18 @@ public class LoginActivity extends AppCompatActivity {
 
                         }else{
                             Log.i("Login","Inicio de sesión fallida, no se encontró token");
+                            Toast.makeText(LoginActivity.this,"Inicio de sesión fallida, no se encontró token",Toast.LENGTH_SHORT).show();
                         }
                     }else{
                         Log.i("Login","Inicio de sesión fallida");
+                        Toast.makeText(LoginActivity.this,"Inicio de sesión fallida.",Toast.LENGTH_SHORT).show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<LoginResponse> call, Throwable t) {
                     Log.i("Login","Inicio de sesión fallida");
+                    Toast.makeText(LoginActivity.this,"Inicio de sesión fallida",Toast.LENGTH_SHORT).show();
                 }
             });
 
