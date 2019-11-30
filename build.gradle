@@ -8,12 +8,20 @@ buildscript {
     }
     dependencies {
 //<<<<<<< Updated upstream
+//<<<<<<< Updated upstream
 //        classpath 'com.android.tools.build:gradle:3.4.1'
+//=======
+        classpath 'com.android.tools.build:gradle:3.4.1'
+//>>>>>>> Stashed changes
 //=======
 //<<<<<<< Updated upstream
         classpath 'com.android.tools.build:gradle:3.5.2'
 //=======
+//<<<<<<< Updated upstream
 //        classpath 'com.android.tools.build:gradle:3.5.1'
+//=======
+        classpath 'com.android.tools.build:gradle:3.5.1'
+//>>>>>>> Stashed changes
 //>>>>>>> Stashed changes
 //>>>>>>> Stashed changes
         classpath 'com.google.gms:google-services:4.2.0'
