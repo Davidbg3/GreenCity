@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatDialogFragment;
 import android.util.Log;
 
@@ -20,6 +21,9 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class RecojoConfirmacion extends AppCompatDialogFragment {
     String cod_recojo;
+
+    private AlertaFragment alertaFragment;
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -73,6 +77,12 @@ public class RecojoConfirmacion extends AppCompatDialogFragment {
 
 
                             Log.d("respuesta: ",output);
+
+
+                            alertaFragment = new AlertaFragment();
+                            FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.frame,alertaFragment);
+                            fragmentTransaction.commit();
 
 
 

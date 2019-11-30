@@ -2,8 +2,10 @@ package com.example.greencity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.greencity.Intercambio.Recojo;
@@ -58,6 +61,7 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
 
 
 
+
     public BlankFragment() {
         // Required empty public constructor
     }
@@ -81,6 +85,41 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        cargaMapa(googleMap);
+
+
+
+
+
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+        Log.d("#####", String.valueOf(marker));
+        Log.d("#####", String.valueOf(marker.getTag()));
+        RecojoConfirmacion vconfirmacion = new RecojoConfirmacion();
+        vconfirmacion.show(getActivity().getSupportFragmentManager(), String.valueOf(marker.getTag()));
+
+
+
+
+
+
+
+//        if (marker.equals(markerPrueba)){
+//            String meLat,meLong;
+//            meLat=Double.toString(marker.getPosition().latitude);
+//            meLong=Double.toString(marker.getPosition().longitude);
+//            Toast.makeText(this,"aaaaa", Toast.LENGTH_SHORT).show();
+//
+//        }
+
+        return false;
+    }
+
+
+    public void cargaMapa(GoogleMap googleMap){
 
         mMap = googleMap;
         LatLng vubicacion=null;
@@ -195,29 +234,6 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(vubicacion,12));//Aplicando Zoom
         googleMap.setOnMarkerClickListener((GoogleMap.OnMarkerClickListener) this);
 
-    }
-
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-
-        Log.d("#####", String.valueOf(marker));
-        Log.d("#####", String.valueOf(marker.getTag()));
-        RecojoConfirmacion vconfirmacion = new RecojoConfirmacion();
-        vconfirmacion.show(getActivity().getSupportFragmentManager(), String.valueOf(marker.getTag()));
-
-
-
-
-
-//        if (marker.equals(markerPrueba)){
-//            String meLat,meLong;
-//            meLat=Double.toString(marker.getPosition().latitude);
-//            meLong=Double.toString(marker.getPosition().longitude);
-//            Toast.makeText(this,"aaaaa", Toast.LENGTH_SHORT).show();
-//
-//        }
-
-        return false;
     }
 
 
