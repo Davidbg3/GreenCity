@@ -9,6 +9,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.greencity.Intercambio.GananciasRequest;
@@ -47,6 +51,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class EstadisticaFragment extends Fragment {
 
+    Spinner opciones;
+
     PieChart pieChart;
 
     //private BarChart mChart;
@@ -63,6 +69,11 @@ public class EstadisticaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_estadistica, container, false);
+
+
+        opciones =(Spinner) view.findViewById(R.id.sp01);
+
+
 
 
 
@@ -237,6 +248,26 @@ public class EstadisticaFragment extends Fragment {
         pieChart.invalidate();
         pieChart.animateX(1400);
         //apanta
+
+
+
+
+        ArrayAdapter<CharSequence> adapter =  ArrayAdapter.createFromResource(getActivity(), R.array.opciones,android.R.layout.simple_spinner_item);
+        opciones.setAdapter(adapter);
+        opciones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                pieChart.animateX(1400);
+                pieChart.animateY(1400, Easing.EaseInOutQuad);
+                chart.animateXY(2000, 2000);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         return view;
 
     }
