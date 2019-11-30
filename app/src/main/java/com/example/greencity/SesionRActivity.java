@@ -21,7 +21,7 @@ public class SesionRActivity extends AppCompatActivity {
     private PerfilFragment perfilFragment;
 
 
-    private BlankFragment aa;
+    private BlankFragment meMapa;
 
 
     @Override
@@ -37,9 +37,9 @@ public class SesionRActivity extends AppCompatActivity {
         estadisticaFragment = new EstadisticaFragment();
         perfilFragment = new PerfilFragment();
 
-        aa = new BlankFragment();
+        meMapa = new BlankFragment();
 
-        setFragment(aa);
+        setFragment(meMapa);
         //setFragment(perfilFragment);
 
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -49,7 +49,7 @@ public class SesionRActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()){
 
                     case R.id.principal:
-                        setFragment(aa);
+                        setFragment(meMapa);
                         return true;
 
                     case R.id.alertas:

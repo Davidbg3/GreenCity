@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -36,30 +37,30 @@ public class RecojoConfirmacion extends AppCompatDialogFragment {
 
                         try {
                             Log.d("Eligio:","XXXXX");
-                            URL url = new URL("http://greencityapp.000webhostapp.com/recojos/aceptar");
+                            URL url = new URL("https://greencityapp.000webhostapp.com/recojos/aceptar");
                             Log.d("Eligio:","CCCCCCC");
-                            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                            HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
                             Log.d("Eligio:","BBBBBB");
                             String urlParameters = "cod_recojo=" + cod_recojo + "&cod_usuario_recolector=" + String.valueOf(Global.IdUsuario) + "&cod_estado=2";
                             Log.d("Eligio:","ZZZZZZ");
                             Log.d("Parametros: ",urlParameters);
-                            connection.setRequestMethod("POST");
-                            connection.setRequestProperty("USER-AGENT","Mozilla/5.0");
-                            connection.setRequestProperty("ACCEPT-LANGUAGE","en-US,en;0.5");
+                            conn.setRequestMethod("POST");
+                            conn.setRequestProperty("USER-AGENT","Mozilla/5.0");
+                            conn.setRequestProperty("ACCEPT-LANGUAGE","en-US,en;0.5");
 
-                            connection.setDoOutput(true);
-                            DataOutputStream dStream = new DataOutputStream(connection.getOutputStream());
+//                            conn.setDoOutput(true);
+                            DataOutputStream dStream = new DataOutputStream(conn.getOutputStream());
 
                             dStream.writeBytes(urlParameters);
                             dStream.flush();
                             dStream.close();
 
-                            int responseCode = connection.getResponseCode();
+                            int responseCode = conn.getResponseCode();
                             String output = "Request URL " + url;
                             output += System.getProperty("line.separator") + "Request Parameters " + urlParameters;
                             output += System.getProperty("line.separator") + "Response Code " + responseCode;
 
-                            BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                             String line= "";
                             StringBuilder responseOutput = new StringBuilder();
 

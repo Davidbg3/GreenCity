@@ -37,6 +37,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
+import javax.net.ssl.HttpsURLConnection;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -150,12 +152,7 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
                 markerDrag=googleMap.addMarker(new MarkerOptions().position(vubicacion).title("Palacio Justicia: otra forma").draggable(true).icon(BitmapDescriptorFactory.fromResource(vicon)));
                 markerDrag.setTag(vcod_recojo);
 
-
-
-
             }
-
-
 
 
         } catch (MalformedURLException e) {
@@ -203,11 +200,12 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
     @Override
     public boolean onMarkerClick(Marker marker) {
 
-
         Log.d("#####", String.valueOf(marker));
         Log.d("#####", String.valueOf(marker.getTag()));
         RecojoConfirmacion vconfirmacion = new RecojoConfirmacion();
         vconfirmacion.show(getActivity().getSupportFragmentManager(), String.valueOf(marker.getTag()));
+
+
 
 
 
