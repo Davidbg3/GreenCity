@@ -44,6 +44,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             horaRecojo=(TextView)itemView.findViewById(R.id.hora);
         }
     }
+
+
     public List<Alerta> alertaLista;
     public List<Usuario> usuarioLista;
     public RecyclerViewAdapter(List<Alerta> alertaLista,List<Usuario> usurioLista) {

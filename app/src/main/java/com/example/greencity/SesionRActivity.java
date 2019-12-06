@@ -22,6 +22,7 @@ public class SesionRActivity extends AppCompatActivity {
 
 
     private BlankFragment meMapa;
+    private HistorialRecolector historialRecolector;
 
 
     @Override
@@ -38,6 +39,7 @@ public class SesionRActivity extends AppCompatActivity {
         perfilFragment = new PerfilFragment();
 
         meMapa = new BlankFragment();
+        historialRecolector=new HistorialRecolector();
 
         setFragment(meMapa);
         //setFragment(perfilFragment);
@@ -53,7 +55,8 @@ public class SesionRActivity extends AppCompatActivity {
                         return true;
 
                     case R.id.alertas:
-                        setFragment(alertaFragment);
+//                        setFragment(alertaFragment);
+                        setFragment(historialRecolector);
                         return true;
                     case R.id.estadisticas:
                         setFragment(estadisticaFragment);
