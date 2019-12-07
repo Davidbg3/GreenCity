@@ -85,8 +85,12 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        cargaMapa(googleMap);
 
+
+        googleMap.setMyLocationEnabled(true);
+
+
+        cargaMapa(googleMap);
 
 
 
@@ -100,6 +104,7 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
         Log.d("#####", String.valueOf(marker.getTag()));
         RecojoConfirmacion vconfirmacion = new RecojoConfirmacion();
         vconfirmacion.show(getActivity().getSupportFragmentManager(), String.valueOf(marker.getTag()));
+
 
 
 
@@ -122,6 +127,8 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
     public void cargaMapa(GoogleMap googleMap){
 
         mMap = googleMap;
+
+
         LatLng vubicacion=null;
 
 //        ##########################################################################################
@@ -156,8 +163,9 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
             jsonArray = new JSONArray(json);
 
 
-            Double vlongitud, vlatitud, vpeso;
-            String vtipoMaterial;
+
+            Double vlongitud, vlatitud;
+            String vtipoMaterial, vmaterial;
             Integer vcod_tipoMaterial, vicon, vcod_recojo;
 
             for (int i = 0 ;i<jsonArray.length();i++){
@@ -167,9 +175,9 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
                 vlatitud = jsonObject.optDouble("latitud");
                 vlongitud = jsonObject.optDouble("longitud");
                 vtipoMaterial = jsonObject.optString("nom_tipo_material");
-                vpeso = jsonObject.optDouble("peso");
                 vcod_tipoMaterial = jsonObject.optInt("cod_tipo_material");
                 vcod_recojo = jsonObject.optInt("cod_recojo");
+                vmaterial = jsonObject.optString("nom_material");
                 vicon = 0;
 
 //                LatLng EstadioNacional = new LatLng(vlatitud, vlongitud);
@@ -188,7 +196,7 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
 
 
                 vubicacion=new LatLng(vlatitud,vlongitud);
-                markerDrag=googleMap.addMarker(new MarkerOptions().position(vubicacion).title("Palacio Justicia: otra forma").draggable(true).icon(BitmapDescriptorFactory.fromResource(vicon)));
+                markerDrag=googleMap.addMarker(new MarkerOptions().position(vubicacion).title(vtipoMaterial).draggable(true).icon(BitmapDescriptorFactory.fromResource(vicon)));
                 markerDrag.setTag(vcod_recojo);
 
             }

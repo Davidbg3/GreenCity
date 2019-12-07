@@ -2,11 +2,11 @@ package com.example.greencity.Modelo;
 
 public class historial_Recolector {
     Integer cod_recojo, cod_estado;
-    String material, direccion,fecha,hora;
+    String material, direccion,fecha,hora, tlf;
     Double peso, monto ;
 
 
-    public historial_Recolector(Integer cod_recojo, Integer cod_estado, String material, String direccion, String fecha, String hora, Double peso, Double monto) {
+    public historial_Recolector(Integer cod_recojo, Integer cod_estado, String material, String direccion, String fecha, String hora, Double peso, Double monto, String tlf) {
         this.cod_recojo = cod_recojo;
         this.cod_estado = cod_estado;
         this.material = material;
@@ -15,8 +15,16 @@ public class historial_Recolector {
         this.hora = hora;
         this.peso = peso;
         this.monto = monto;
+        this.tlf = tlf;
     }
 
+    public String getTlf() {
+        return tlf;
+    }
+
+    public void setTlf(String tlf) {
+        this.tlf = tlf;
+    }
 
     public Integer getCod_recojo() {
         return cod_recojo;

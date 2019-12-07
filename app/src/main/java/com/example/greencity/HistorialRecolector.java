@@ -88,7 +88,7 @@ public class HistorialRecolector extends Fragment {
 
 
             int vcod_recojo, vcod_estado;
-            String vmaterial, vdireccion, vfecha, vhora;
+            String vmaterial, vdireccion, vfecha, vhora, vtlf;
             Double vpeso, vmonto;
 
 
@@ -103,9 +103,11 @@ public class HistorialRecolector extends Fragment {
                 vpeso = jsonObject.optDouble("peso");
                 vmonto = jsonObject.optDouble("precio");
 
+                vtlf = jsonObject.optString("telefono");
+
                 vcod_estado = jsonObject.optInt("cod_estado");
 
-                lista.add(new historial_Recolector(vcod_recojo,vcod_estado,vmaterial,vdireccion,vfecha,vhora,vpeso,vmonto));
+                lista.add(new historial_Recolector(vcod_recojo,vcod_estado,vmaterial,vdireccion,vfecha,vhora,vpeso,vmonto,vtlf));
 
             }
 
