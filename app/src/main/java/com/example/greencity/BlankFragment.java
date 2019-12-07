@@ -87,7 +87,7 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
     public void onMapReady(GoogleMap googleMap) {
 
 
-        googleMap.setMyLocationEnabled(true);
+//        googleMap.setMyLocationEnabled(true);
 
 
         cargaMapa(googleMap);
