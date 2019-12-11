@@ -86,13 +86,10 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
-
-//        googleMap.setMyLocationEnabled(true);
+        googleMap.setMyLocationEnabled(true);
 
 
         cargaMapa(googleMap);
-
-
 
 
     }
@@ -104,10 +101,6 @@ public class BlankFragment extends Fragment implements OnMapReadyCallback, Googl
         Log.d("#####", String.valueOf(marker.getTag()));
         RecojoConfirmacion vconfirmacion = new RecojoConfirmacion();
         vconfirmacion.show(getActivity().getSupportFragmentManager(), String.valueOf(marker.getTag()));
-
-
-
-
 
 
 
